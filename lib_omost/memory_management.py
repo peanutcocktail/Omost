@@ -1,9 +1,11 @@
 import torch
+import devicetorch
 from contextlib import contextmanager
 
 
 high_vram = False
-gpu = torch.device('cuda')
+gpu = devicetorch.get(torch)
+#gpu = torch.device('cuda')
 cpu = torch.device('cpu')
 
 torch.zeros((1, 1)).to(gpu, torch.float32)
